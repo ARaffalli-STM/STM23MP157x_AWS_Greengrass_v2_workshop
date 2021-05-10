@@ -1000,3 +1000,5 @@ The serial terminal allows to communicate with the board trough a UART serial in
 > 
 > root@stm32mp1:~#
 > ```
+
+*Work on progress...*_
