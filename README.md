@@ -1,3 +1,5 @@
+
+
 # Setup the development environment on your host computer
 
 ## 1. Create the development workspace on your host computer
@@ -166,7 +168,7 @@ For the needs of this workshop, however, we are going to use a different reposit
 3. The installation relies on the repo command. First initialize repo in the current directory
 
 > ```bash
-> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
+> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop-test1
 > ```
 
 4. Then synchronize the local project directories with the remote repositories specified in the manifest
@@ -233,7 +235,7 @@ The BSP for STM32MP1 depends on packages and firmware which are covered by a **[
 
 Note that:
 
-- *st-workshop-image* (OpenSTLinux distribution featuring Weston/Wayland plus the IoTEdge packages) and *stm32mp1-workshop*  are the **default** are the values for *DISTRO* and *MACHINE* to be used for the workshop. They are based on the default machine and image from the official openstlinux delivery with support of Microsoft® Azure IoTEdge packages and support of some sensors from the IKS01Ax MEMS expansion board enabled in the Linux kernel  
+- *st-workshop-image* (OpenSTLinux distribution featuring Weston/Wayland plus the IoTEdge packages) and *stm32mp1-workshop*  are the **default** are the values for *DISTRO* and *MACHINE* to be used for the workshop
 - Other values for *DISTRO* and *MACHINE* are proposed in OpenSTLinux distribution
 
 Among other things, the environment setup script creates the **build directory** named **build-openstlinuxweston-stm32mp1-workshop**. After the script runs, the current working directory is set to this build directory. When the build completes, it contains all the files created during the build
@@ -268,7 +270,7 @@ The local configuration file (*build-openstlinuxweston-stm32mp1-workshop/conf/lo
 
 ## 2. Flash the SD Card with the built package
 
-The previous build is provided in a USB flash drive in the *4.OpenSTLinux_IoTEdge* folder and is called *stm32mp1.zip*
+<!-- The previous build is provided in a USB flash drive in the *4.OpenSTLinux_IoTEdge* folder and is called *stm32mp1.zip*
 
 1. Copy the *stm32mp1.zip* file in `$HOME/STM32MPU_workspace/tmp`
 
@@ -282,21 +284,21 @@ The previous build is provided in a USB flash drive in the *4.OpenSTLinux_IoTEdg
 > PC $> cd $HOME/STM32MPU_workspace/tmp
 > PC $> unzip stm32mp1.zip
 > ```
-
-3. Move to `$HOME/STM32MPU_workspace/tmp/stm32mp1`
+-->
+1. Move to the compiled images directory
 
 > ```bash
-> PC $> cd stm32mp1
+> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop/tmp-glibc/deploy/images/stm32mp1-workshop/
 > ```
 
-4. Set the boot switches (located at the back of the board) to the off position
+2. Set the boot switches (located at the back of the board) to the off position
 
 ![](Pictures/STM32MP157C-DK2_jumper_flash.jpg)
 
-5. Connect an USB Type A to Type C cable between your PC and CN7 (USB) connector (SD Card programming port)
-6. Connect an USB Type A to Type C cable between your PC and CN6 (PWR_IN) connector (board power supply)
-7. Press the reset button to reset the board
-8. Use STM32CubeProgrammer in command line interface mode to program the board SD Card
+3. Connect an USB Type A to Type C cable between your PC and CN7 (USB) connector (SD Card programming port)
+4. Connect an USB Type A to Type C cable between your PC and CN6 (PWR_IN) connector (board power supply)
+5. Press the reset button to reset the board
+6. Use STM32CubeProgrammer in command line interface mode to program the board SD Card
 
 - Check the USB port where the board is connected
 
@@ -330,14 +332,14 @@ The previous build is provided in a USB flash drive in the *4.OpenSTLinux_IoTEdg
 - Program the SD Card with all the images
 
 > ```bash
-> PC $> STM32_Programmer_CLI -c port=usb1 -w flashlayout_st-image-weston/trusted/FlashLayout_sdcard_stm32mp157a-dk1-trusted.tsv
+> PC $> STM32_Programmer_CLI -c port=usb1 -w ./flashlayout_st-workshop-image/trusted/FlashLayout_sdcard_stm32mp157c-dk2-trusted.tsv
 > ```
 
-9. Disconnect the USB Type A to Type C cable between your PC and CN7 (USB) connector (SDCard programming port)
+7. Disconnect the USB Type A to Type C cable between your PC and CN7 (USB) connector (SDCard programming port)
 
-10. Disconnect the USB Type A to Type C cable between your PC and CN6 (PWR_IN) connector (board power supply)
+8. Disconnect the USB Type A to Type C cable between your PC and CN6 (PWR_IN) connector (board power supply)
 
-11. Set the boot switches (located at the back of the board) to the ON position
+9. Set the boot switches (located at the back of the board) to the ON position
 
 ![](Pictures/STM32MP157C-DK2_jumper_boot.jpg)
 
@@ -1001,4 +1003,136 @@ The serial terminal allows to communicate with the board trough a UART serial in
 > root@stm32mp1:~#
 > ```
 
-*Work on progress...*_
+------
+
+# Add sensing and wireless connectivity
+
+This chapter will explain how to connect the X-NUCLEO-IKS01A3 sensor shield on the STM32MP157C-DK2 and read the sensor outputs.
+This chapter will also give a few command lines to setup a connection to a WiFi hotspot
+
+The X-NUCLEO-IKS01A3 sensor shield is an Arduino expansion board that includes several sensors like
+
+* Accelerometer (LIS2DW12)
+* Gyroscope (LSM6DS0)
+* Magnetic sensor (LIS2MDL)
+* Pressure sensor (LPS22HH)
+* Humidity and temperature (HTS221)
+* Temperature (STTS751)
+
+
+
+## 1. Hardware configuration
+
+### 1.1 Platforms
+
+​		First you have to connect the X-NUCLEO-IKS01A3 sensor shield on the Arduino connectors under the STM32MP157A-DK1 board
+
+​		**STM32MP157A-DK1 board**
+
+![](Pictures/STM32MP157A-DK1.jpg)
+
+​		**X-NUCLEO-IKS01A3 sensor shield**
+
+![](Pictures/x-nucleo-iks01a3.jpg)
+
+The next step is to configure the Linux software in order to let the X-NUCLEO-IKS01A3 sensor shield communicate with the STM32MP157A-DK1 board
+
+This configuration is done by modifying the STM32MP157A-DK1 Linux kernel and managing some new device tree elements
+
+### 1.2 Connectivity details
+
+According to X-NUCLEO-IKS01A3 [user manual][X-NUCLEO-IKS01A3 user manual], all the sensors on the board are controlled by I2C bus
+
+Looking at X-NUCLEO-IKS01A3 schematics in the user manual, we understand that all the I2C buses of the sensors are wired together via jumpers JP7 and JP8 and routed to Arduino connector CN5 pins 9 (SDA) and 10 (SCL)
+
+In addition, pins 5 and 6 of Arduino connector CN9 are used to manage LSM6DSL motion MEMS interruptions (indicated for information, not used on kernel configuration)
+
+[X-NUCLEO-IKS01A3 user manual]: https://www.st.com/resource/en/user_manual/dm00601501-getting-started-with-the-xnucleoiks01a3-motion-mems-and-environmental-sensor-expansion-board-for-stm32-nucleo-stmicroelectronics.pdf
+
+ ![](Pictures/Arduino_X-NUCLEO-IKS01A3.JPG)
+
+Then looking at STM32MP157Z-DK1 schematics in the [user manual][STM32MP157A-DK1 user manual], we understand that Arduino connector CN13 pins 9 (SDA) and 10 (SCL) are connected to the I2C5 of STM32MP157A
+
+[STM32MP157A-DK1 user manual ]: https://www.st.com/content/ccc/resource/technical/layouts_and_diagrams/schematic_pack/group0/36/8e/ea/7a/ca/ca/4b/e4/mb1272-dk2-c01_schematic/files/MB1272-DK2-C01_Schematic.pdf/jcr:content/translations/en.MB1272-DK2-C01_Schematic.pdf
+
+In addition, pins 5 and 6 of Arduino connector CN14 are used to manage LSM6DSL motion MEMS interruptions (indicated for information, not used on kernel configuration)
+
+![](Pictures/Arduino_STM32MP157A-DK1.JPG)
+
+
+
+## 2. Software configuration
+
+### 2.1 Kernel device tree configuration
+
+The kernel is already configured to support the the following 3 sensors on the X-NUCLEO-IKS01A3 sensor shield: lis2dw12 (accelerometer), lis2mdl (magnetometer) and hts221 (temperature and humidity sensor).
+This is done using the recipe  $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop/layers/meta-st/meta-st-workshop/recipes-kernel/linux/linux-stm32mp_5.10.bbappend
+
+You may verify the availability of the 3 sensors using the following command:
+> ```bash
+> Board $> grep OF_NAME /sys/bus/iio/devices/iio\:device*/uevent
+> /sys/bus/iio/devices/iio:device0/uevent:OF_NAME=hts221
+> /sys/bus/iio/devices/iio:device1/uevent:OF_NAME=lis2dw12
+> /sys/bus/iio/devices/iio:device2/uevent:OF_NAME=lis2mdl
+> 
+
+
+#### 2.2 Read the sensors data
+
+We can read from the accelerometer sensor using the following command (note that there is a latency of about 10-20 seconds before the command returns)
+
+> ```bash
+> board $> ./read_sensor.sh acc
+> ```
+
+From the magnetometer sensor using the following command
+
+> ```bash
+> board $> ./read_sensor.sh mag
+> ```
+
+And from the temperature sensor using the following command
+
+> ```bash
+> board $> ./read_sensor.sh hum
+> ```
+
+
+#### 2.3 Connecting the STM32MP157C-DK2 board to a Wi-Fi access point
+
+The goal is to configure an wlan network interface via systemd-networkd configuration
+
+In order to attach this wireless interface to a specific network, we need to have some information like the network SSID and password
+
+Type the following command in order to see the list of wireless network available
+
+> ```bash
+> Board $> ifconfig wlan0 up
+> Board $> iw dev wlan0 scan | grep SSID
+>     SSID: NETWORK1
+>     SSID: NETWORK2
+> ```
+
+Associate the wireless network to the wireless interface, here *wlan0*
+
+> ```bash
+> Board $> mkdir -p /etc/wpa_supplicant/
+>       wpa_passphrase SSID_OF_NETWORK PASSWORD_OF_NETWORK >> /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+> ```
+
+Where *SSID_OF_NETWORK = msedgeworkshop* and *PASSWORD_OF_NETWORK = STAventM$TM999* during this workshop
+
+Last, in order to enable and start the wireless configuration, type the following command
+
+> ```bash
+> Board $> systemctl enable wpa_supplicant@wlan0.service
+> Board $> systemctl restart systemd-networkd.service
+> Board $> systemctl restart wpa_supplicant@wlan0.service
+> ```
+
+Your board should be now connected to the network and internet, you can verify with the following command
+
+> ```bash
+> Board $> ping www.google.com
+> ```
+
