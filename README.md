@@ -1083,7 +1083,7 @@ A python script is available to read and display the sensors value on a GUI:
 
 > ```bash
 > board $> python3 read_sensor.py
-> ``
+> ```
    
 We can read from the accelerometer sensor using the following command (note that there is a latency of about 10-20 seconds before the command returns)
 
