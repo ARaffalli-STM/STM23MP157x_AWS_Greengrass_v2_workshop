@@ -168,7 +168,7 @@ For the needs of this workshop, however, we are going to use a different reposit
 3. The installation relies on the repo command. First initialize repo in the current directory
 
 > ```bash
-> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop-test1
+> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
 > ```
 
 4. Then synchronize the local project directories with the remote repositories specified in the manifest
@@ -1079,6 +1079,12 @@ You may verify the availability of the 3 sensors using the following command:
 
 #### 2.2 Read the sensors data
 
+A python script is available to read and display the sensors value on a GUI:
+
+> ```bash
+> board $> python3 read_sensor.py
+> ``
+   
 We can read from the accelerometer sensor using the following command (note that there is a latency of about 10-20 seconds before the command returns)
 
 > ```bash
@@ -1096,7 +1102,6 @@ And from the temperature sensor using the following command
 > ```bash
 > board $> ./read_sensor.sh hum
 > ```
-
 
 #### 2.3 Connecting the STM32MP157C-DK2 board to a Wi-Fi access point
 
@@ -1116,8 +1121,7 @@ Type the following command in order to see the list of wireless network availabl
 Associate the wireless network to the wireless interface, here *wlan0*
 
 > ```bash
-> Board $> mkdir -p /etc/wpa_supplicant/
->       wpa_passphrase SSID_OF_NETWORK PASSWORD_OF_NETWORK >> /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+> Board $> wpa_passphrase SSID_OF_NETWORK PASSWORD_OF_NETWORK >> /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 > ```
 
 Where *SSID_OF_NETWORK = msedgeworkshop* and *PASSWORD_OF_NETWORK = STAventM$TM999* during this workshop
