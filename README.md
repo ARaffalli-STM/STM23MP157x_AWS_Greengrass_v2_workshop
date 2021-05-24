@@ -168,7 +168,7 @@ For the needs of this workshop, however, we are going to use a different reposit
 3. The installation relies on the repo command. First initialize repo in the current directory
 
 > ```bash
-> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
+> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop-dk1-dk2
 > ```
 
 4. Then synchronize the local project directories with the remote repositories specified in the manifest
