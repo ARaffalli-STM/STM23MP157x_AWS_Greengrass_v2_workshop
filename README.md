@@ -241,7 +241,7 @@ The BSP for STM32MP1 depends on packages and firmware which are covered by a **[
 
 Note that:
 
-- *st-workshop-image* (OpenSTLinux distribution featuring Weston/Wayland plus the IoTEdge packages) and *stm32mp1-workshop*  are the **default** are the values for *DISTRO* and *MACHINE* to be used for the workshop
+- *openstlinux-weston* (OpenSTLinux distribution featuring Weston/Wayland) and *stm32mp1-workshop* (stm32mp1 machine plus the IoTEdge packages)  are the **default** are the values for *DISTRO* and *MACHINE* to be used for the workshop
 - Other values for *DISTRO* and *MACHINE* are proposed in OpenSTLinux distribution
 
 Among other things, the environment setup script creates the **build directory** named **build-openstlinuxweston-stm32mp1-workshop**. After the script runs, the current working directory is set to this build directory. When the build completes, it contains all the files created during the build
@@ -586,7 +586,8 @@ Last, in order to enable and start the wireless configuration, type the followin
 > Board $> dhclient wlan0
 > ```
 
-Note: once you see "R8188EU: assoc success" and "wlan0: link becomes ready", it means that the wifi interface bring-up is successful
+Note: once you see "R8188EU: assoc success" and "wlan0: link becomes ready", it means that the wifi interface bring-up is successful.
+   
 Your board should be now connected to the network and internet, you can verify with the following command
 
 > ```bash
