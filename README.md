@@ -1,4 +1,5 @@
-This document walks you throuhg setting up a Ubuntu PC, downloading and compiling the OpenSTLinux distribution, flashing the evaluation kit and testing the Microsoft® Azure IoT Edge services.
+This document walks you through setting up a Ubuntu PC, downloading and compiling the OpenSTLinux distribution, flashing the evaluation kit and testing the Microsoft® Azure IoT Edge services.
+
 Required H/W:
 - Ubuntu 18.04 or 20.04 machine
 - WiFi hotspot
@@ -616,4 +617,4 @@ If you get an output similar to the above, please close the console application.
 
 5. Press "DEPLOY", then press "DASHBOARD"
 
-1. Install Java platform version 1.8 required by STM32CubeProgrammer
+![](Pictures/STMCubeMonitor.JPG)
