@@ -596,7 +596,7 @@ Your board should be now connected to the network and internet, you can verify w
 
 1. Download the latest [STM32CubeMonitor ][STM32CubeProgrammer download link] 
 
-[[STM32CubeProgrammer download link]: https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-performance-and-debuggers/stm32cubemonitor.html
+[STM32CubeProgrammer download link]: https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-performance-and-debuggers/stm32cubemonitor.html
 
 2. Boot the board and connect it to the host PC via ST-Link port 
 
@@ -611,7 +611,8 @@ Your board should be now connected to the network and internet, you can verify w
 > -486.00,963.00,697.50                                                           
 > -493.50,960.00,682.50
 > ```
-
+If you get an output similar to the above, please close the console application.
+   
 4. Open STM32CubeMonitor on the UBUNTU PC and import magnetometer_gauge.json from meta-st-iot_engine/PC-tools/
 
 5. Press "DEPLOY", then press "DASHBOARD"
