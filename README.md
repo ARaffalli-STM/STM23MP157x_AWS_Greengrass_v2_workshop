@@ -594,7 +594,7 @@ Your board should be now connected to the network and internet, you can verify w
 
 #### 2.5 Monitor the magnetometer measurment using STM32CubeMonitor on PC
 
-1. Download the latest [STM32CubeMonitor ][STM32CubeProgrammer download link] 
+1. Download and install the latest [STM32CubeMonitor ][STM32CubeProgrammer download link] 
 
 [STM32CubeProgrammer download link]: https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-performance-and-debuggers/stm32cubemonitor.html
 
@@ -604,7 +604,6 @@ Your board should be now connected to the network and internet, you can verify w
 
 > ```bash
 > Board $> while true; do ./read_sensor.sh mag | tail -n 1 | sed -e 's/Magnetometer value: \[ //'  | sed -e 's/\]//' | sed -e 's/ //g'; sleep 0.2; done
-> Board $> wpa_supplicant -i wlan0 -D wext -c /etc/wpa_supplicant/wpa_supplicant-wlan0.conf -B
 > -498.00,955.50,690.00                                                           
 > -484.50,954.00,687.00                                                           
 > -492.00,957.00,693.00                                                           
