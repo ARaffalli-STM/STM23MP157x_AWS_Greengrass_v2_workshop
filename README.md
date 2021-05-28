@@ -1,3 +1,4 @@
+This document walks the trainee throuhg setting up a Ubuntu PC, downloading and compiling the openstlinux distrubtion, flashing the evaluation kit and testing the Microsoft® Azure IoT Edge services.
 
 
 # Setup the development environment on your host computer
