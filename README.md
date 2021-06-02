@@ -581,8 +581,6 @@ Last, in order to enable and start the wireless configuration, type the followin
 > ioctl[SIOCSIWAP]: Operation not permitted
 > Board $> [  178.814860] R8188EU: assoc success
 > [  178.901592] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
-> Board $> dhclient 0
-> Board $> wpa_supplicant -i wlan0 -D wext -c /etc/wpa_supplicant/wpa_supplicant-wlan0.conf -B
 > Board $> dhclient wlan0
 > ```
 
