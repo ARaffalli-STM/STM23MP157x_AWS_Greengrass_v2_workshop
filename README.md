@@ -149,6 +149,22 @@ Required H/W:
 
 
 ------
+## 4. Install extra packages
+Additional Ubuntu packages must be installed to perform basic development tasks, basic cross-compilation or more complex cross-compilation such as OpenEmbedded does:
+1. Packages required by OpenEmbedded/Yocto:
+> ```bash
+> PC $> sudo apt-get update
+> PC $> sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 pylint xterm
+> PC $> sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
+> PC $> sudo apt-get install libmpc-dev libgmp-dev
+> ```
+2. Packages needed for some "Developer Package" use cases:
+> ```bash
+> PC $> sudo apt-get install libncurses5 libncurses5-dev libncursesw5-dev libssl-dev linux-headers-generic u-boot-tools device-tree-compiler bison flex g++ libyaml-dev libmpc-dev libgmp-dev
+> ```
+3. Package for repo (used to download the "Distribution Package" source code):
+Please follow the installation instructions described in https://source.android.com/setup/develop#installing-repo
+------
 
 
 # Build a package including Microsoft® Azure IoT Edge services
