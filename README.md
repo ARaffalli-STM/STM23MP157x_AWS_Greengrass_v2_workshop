@@ -164,6 +164,11 @@ Additional Ubuntu packages must be installed to perform basic development tasks,
 > ```
 3. Package for repo (used to download the "Distribution Package" source code):
 Please follow the installation instructions described in https://source.android.com/setup/develop#installing-repo
+Note: if command "repo init" returns "/usr/bin/env: ‘python’: No such file or directory" please execute the following command:
+
+> ```bash
+> PC $> sudo ln -s /usr/bin/python3 /usr/bin/python
+> ```
 ------
 
 
