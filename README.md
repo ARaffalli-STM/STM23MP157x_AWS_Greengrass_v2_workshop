@@ -257,7 +257,7 @@ The BSP for STM32MP1 depends on packages and firmware which are covered by a **[
 
 Note that:
 
-- *openstlinux-weston* (OpenSTLinux distribution featuring Weston/Wayland) and *stm32mp1-workshop* (stm32mp1 machine plus the IoTEdge packages)  are the **default** are the values for *DISTRO* and *MACHINE* to be used for the workshop
+- *openstlinux-weston* (OpenSTLinux distribution featuring Weston/Wayland) and *stm32mp1-workshop* (stm32mp1 machine plus the IoTEdge packages) are the values for *DISTRO* and *MACHINE* to be used for the workshop
 - Other values for *DISTRO* and *MACHINE* are proposed in OpenSTLinux distribution
 
 Among other things, the environment setup script creates the **build directory** named **build-openstlinuxweston-stm32mp1-workshop**. After the script runs, the current working directory is set to this build directory. When the build completes, it contains all the files created during the build
