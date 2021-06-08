@@ -589,7 +589,6 @@ Where *SSID_OF_NETWORK = msedgeworkshop* and *PASSWORD_OF_NETWORK = STAventM$TM9
 Last, in order to enable and start the wireless configuration, type the following command
 
 > ```bash
-> Board $> wpa_passphrase SSID_OF_NETWORK PASSWORD_OF_NETWORK >> /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 > Board $> wpa_supplicant -i wlan0 -D wext -c /etc/wpa_supplicant/wpa_supplicant-wlan0.conf -B
 > Successfully initialized wpa_supplicant
 > rfkill: Cannot get wiphy information
