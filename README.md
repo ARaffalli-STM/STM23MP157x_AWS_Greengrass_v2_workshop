@@ -312,7 +312,7 @@ The local configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/lo
 1. Move to the compiled images directory
 
 > ```bash
-> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop/tmp-glibc/deploy/images/stm32mp1-workshop/
+> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2/build-openstlinuxweston-stm32mp1-aws-ggv2/tmp-glibc/deploy/images/stm32mp1-aws-ggv2/
 > ```
 
 2. Set the boot switches (located at the back of the board) to the off position
