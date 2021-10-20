@@ -1,4 +1,4 @@
-This document walks you through setting up a Ubuntu PC, downloading and compiling the OpenSTLinux distribution, flashing the evaluation kit and testing the Microsoft® Azure IoT Edge services.
+This document walks you through setting up a Ubuntu PC, downloading and compiling the OpenSTLinux distribution, flashing the evaluation kit and testing the AWS IoT Greengrass V2 services.
 
 Required H/W:
 - Ubuntu 18.04 or 20.04 machine
@@ -172,7 +172,7 @@ Note: if command "repo init" returns "/usr/bin/env: ‘python’: No such file o
 ------
 
 
-# Build a package including Microsoft® Azure IoT Edge services
+# Build a package including AWS IoT Greengrass V2 services
 
 ## 1. Using OpenSTLinux Distribution Package
 
@@ -209,7 +209,7 @@ For the needs of this workshop, however, we are going to use a different manifes
 The OpenSTLinux distribution installation directory is then populated with the "layers" directory:
 
 > ```
-> openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop  OpenSTLinux distribution with Microsoft® Azure IoTEdge workshop packages
+> openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2  OpenSTLinux distribution with AWS IoT Greengrass V2 packages
 > ├── layers 
 > │    ├── meta-openembedded                Collection of layers for the OpenEmbedded-Core universe (OpenEmbedded standard)
 > │    ├── meta-qt5                         QT5 layer for OpenEmbedded (standard)
