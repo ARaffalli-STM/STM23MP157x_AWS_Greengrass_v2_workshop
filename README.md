@@ -356,7 +356,7 @@ The local configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/lo
 - Program the SD Card with all the images
 
 > ```bash
-> PC $> STM32_Programmer_CLI -c port=usb1 -w ./flashlayout_st-workshop-image/trusted/FlashLayout_sdcard_stm32mp157c-dk2-trusted.tsv
+> PC $> STM32_Programmer_CLI -c port=usb1 -w ./flashlayout_st-aws-ggv2-image/trusted/FlashLayout_sdcard_stm32mp157c-dk2-trusted.tsv
 > ```
 
 7. Disconnect the USB Type A to Type C cable between your PC and CN7 (USB) connector (SDCard programming port)
