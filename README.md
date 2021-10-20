@@ -267,10 +267,10 @@ Among other things, the environment setup script creates the **build directory**
 The local configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/local.conf*) contains all local user settings. The layers configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/bblayers.conf*) tells BitBake which layers must be considered during the build
 
 > ```
-> openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop	OpenSTLinux distribution
+> build-openstlinuxweston-stm32mp1-aws-ggv2	OpenSTLinux distribution
 > ├── build-openstlinuxweston-stm32mp1-aws-ggv2	Build directory
 > │   ├── conf
-> │   │   ├── bblayers.conf				Local build-openstlinuxweston-stm32mp1-aws-ggv2configuration file
+> │   │   ├── bblayers.conf				Local build-openstlinuxweston-stm32mp1-aws-ggv2 configuration file
 > │   │   ├── local.conf					Layers configuration file
 > │   │   └── [...]
 > │   └── workspace
@@ -281,12 +281,12 @@ The local configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/lo
 
 3. Build the image
 
-   To build the image, execute the following command in the folder `$HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v2.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop/build-openstlinuxweston-stm32mp1-workshop`
+   To build the image, execute the following command in the folder `$HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v2.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2/build-openstlinuxweston-stm32mp1-aws-ggv2`
 
 *Note: This operation is taking a lot of time, between 4 to 6hours so we will not execute it, rather we will provide the output images that have been created in a USB flash drive and are inside the folder 4.OpenSTLinux_IoTEdge*
 
 > ```bash
-> PC $> bitbake st-workshop-image
+> PC $> bitbake st-aws-ggv2-image
 > ```
 
 
