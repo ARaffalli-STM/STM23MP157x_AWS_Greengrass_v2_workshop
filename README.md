@@ -177,25 +177,25 @@ Note: if command "repo init" returns "/usr/bin/env: ‘python’: No such file o
 ## 1. Using OpenSTLinux Distribution Package
 
 The STM32MP1 OpenSTLinux distribution is delivered through a manifest repository location and a manifest revision (*openstlinux-5.10-dunfell-mp1-21-03-31*)
-For the needs of this workshop, however, we are going to use a different reposity based on the official one with the additions of the layers related to the Microsoft® Azure IoTEdge packages and dependencies (meta-iotedge, meta-rust and meta-virtualization).
+For the needs of this workshop, however, we are going to use a different manifest based on the official one with the additions of the layers related to the AWS IoT Greengrass V2 package.
 
 
 1. Create your STM32MP15x Distribution Package directory & sub-directory
 
 > ```bash
-> PC $> mkdir -p $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
+> PC $> mkdir -p $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2
 > ```
 
-2. Go to `$HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop` directory
+2. Go to `$HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2` directory
 
 > ```bash
-> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
+> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2
 > ```
 
 3. The installation relies on the repo command. First initialize repo in the current directory
 
 > ```bash
-> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop-dk1-dk2
+> PC $> repo init -u  https://github.com/ARaffalli-STM/wk-manifest.git -b refs/tags/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2
 > ```
 
 4. Then synchronize the local project directories with the remote repositories specified in the manifest
@@ -240,12 +240,9 @@ The OpenSTLinux distribution installation directory is then populated with the "
 > │    │   ├── scripts
 > │    │   │    ├── envsetup.sh             Environment setup script for Distribution Package
 > │    │   │    └── [...]
-> │    │   └── meta-st-workshop		    STMicroelectronics layer that contains additional machine and image for Microsoft® Azure IoTEdge workshop
-> │    ├── meta-timesys                     Timesys layer for OpenEmbedded (standard)
-> │    ├── openembedded-core                Core metadata for current versions of OpenEmbedded (standard)
-> │    ├── meta-iotedge                     This layer provides support for building IoT Edge.
-> │    ├── meta-rust                	    This OpenEmbedded layer provides the rust compiler, tools for building packages (cargo), and a few example projects
-> │    └── meta-virtualization              Layer enabling hypervisor, virtualization tool stack, and cloud support
+> │    │   └── AP-meta-st-aws_ggv2		    STMicroelectronics layer that contains additional machine and image for AWS IoT Greengrass V2 workshop
+> │    ├── openembedded-core               Core metadata for current versions of OpenEmbedded (standard)
+> │    └── meta-aws                        Layer provinding recipes for building in AWS edge software capabilities to Embedded Linux 
 > ```
 
 
@@ -255,7 +252,7 @@ The OpenSTLinux distribution installation directory is then populated with the "
 
 > ```bash
 > PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop
-> PC $> DISTRO=openstlinux-weston MACHINE=stm32mp1-workshop source layers/meta-st/scripts/envsetup.sh
+> PC $> DISTRO=openstlinux-weston MACHINE=stm32mp1-aws-ggv2 source layers/meta-st/scripts/envsetup.sh
 > ```
 
 The BSP for STM32MP1 depends on packages and firmware which are covered by a **[software license agreement (SLA)](https://wiki.st.com/stm32mpu/wiki/OpenSTLinux_licenses#Top_Software_license_agreement_.28SLA.29_and_third-party_licences)**. You will be asked to read and to accept this EULA
@@ -503,7 +500,7 @@ In addition, pins 5 and 6 of Arduino connector CN14 are used to manage LSM6DSL m
 ### 2.1 Kernel device tree configuration
 
 The kernel is already configured to support the the following 3 sensors on the X-NUCLEO-IKS01A3 sensor shield: lis2dw12 (accelerometer), lis2mdl (magnetometer) and hts221 (temperature and humidity sensor).
-This is done using the recipe  $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop/layers/meta-st/meta-st-workshop/recipes-kernel/linux/linux-stm32mp_5.10.bbappend
+This is done using the recipe  $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2/layers/meta-st/AP-meta-st-aws_ggv2/recipes-kernel/linux/linux-stm32mp_5.10.bbappend
 
 You may verify the availability of the 3 sensors using the following command:
 > ```bash
