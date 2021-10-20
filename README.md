@@ -251,7 +251,7 @@ The OpenSTLinux distribution installation directory is then populated with the "
 ==> The OpenEmbedded environment setup script must be run once in each new working terminal in which you use the BitBake or devtool tools
 
 > ```bash
-> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/build-openstlinuxweston-stm32mp1-aws-ggv2
+> PC $> cd $HOME/STM32MPU_workspace/STM32MP15-Ecosystem-v3.0.0/Distribution-Package/openstlinux-5.10-dunfell-mp1-21-03-31-st-aws-ggv2
 > PC $> DISTRO=openstlinux-weston MACHINE=stm32mp1-aws-ggv2 source layers/meta-st/scripts/envsetup.sh
 > ```
 
