@@ -608,29 +608,3 @@ Your board should be now connected to the network and internet, you can verify w
 > ```bash
 > Board $> ping www.google.com
 > ```
-
-#### 2.5 Monitor the magnetometer measurment using STM32CubeMonitor on PC
-
-1. Download and install the latest [STM32CubeMonitor ][STM32CubeProgrammer download link] 
-
-[STM32CubeProgrammer download link]: https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-performance-and-debuggers/stm32cubemonitor.html
-
-2. Boot the board and connect it to the host PC via ST-Link port 
-
-3. Open a console attached to the serial link offered by ST-Link and execute the following commmand:
-
-> ```bash
-> Board $> while true; do ./read_sensor.sh mag | tail -n 1 | sed -e 's/Magnetometer value: \[ //'  | sed -e 's/\]//' | sed -e 's/ //g'; sleep 0.2; done
-> -498.00,955.50,690.00                                                           
-> -484.50,954.00,687.00                                                           
-> -492.00,957.00,693.00                                                           
-> -486.00,963.00,697.50                                                           
-> -493.50,960.00,682.50
-> ```
-If you get an output similar to the above, please close the console application.
-   
-4. Open STM32CubeMonitor on the UBUNTU PC and import magnetometer_gauge.json from meta-st-iot_engine/PC-tools/
-
-5. Press "DEPLOY", then press "DASHBOARD"
-
-![](Pictures/STMCubeMonitor.JPG)
