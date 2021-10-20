@@ -259,18 +259,18 @@ The BSP for STM32MP1 depends on packages and firmware which are covered by a **[
 
 Note that:
 
-- *openstlinux-weston* (OpenSTLinux distribution featuring Weston/Wayland) and *stm32mp1-workshop* (stm32mp1 machine plus the IoTEdge packages) are the values for *DISTRO* and *MACHINE* to be used for the workshop
+- *openstlinux-weston* (OpenSTLinux distribution featuring Weston/Wayland) and *stm32mp1-aws-ggv2* (stm32mp1 machine plus the IoTEdge packages) are the values for *DISTRO* and *MACHINE* to be used for the workshop
 - Other values for *DISTRO* and *MACHINE* are proposed in OpenSTLinux distribution
 
-Among other things, the environment setup script creates the **build directory** named **build-openstlinuxweston-stm32mp1-workshop**. After the script runs, the current working directory is set to this build directory. When the build completes, it contains all the files created during the build
+Among other things, the environment setup script creates the **build directory** named **build-openstlinuxweston-stm32mp1-aws-ggv2**. After the script runs, the current working directory is set to this build directory. When the build completes, it contains all the files created during the build
 
-The local configuration file (*build-openstlinuxweston-stm32mp1-workshop/conf/local.conf*) contains all local user settings. The layers configuration file (*build-openstlinuxweston-stm32mp1/conf/bblayers.conf*) tells BitBake which layers must be considered during the build
+The local configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/local.conf*) contains all local user settings. The layers configuration file (*build-openstlinuxweston-stm32mp1-aws-ggv2/conf/bblayers.conf*) tells BitBake which layers must be considered during the build
 
 > ```
 > openstlinux-5.10-dunfell-mp1-21-03-31-st-workshop	OpenSTLinux distribution
-> ├── build-openstlinuxweston-stm32mp1	Build directory
+> ├── build-openstlinuxweston-stm32mp1-aws-ggv2	Build directory
 > │   ├── conf
-> │   │   ├── bblayers.conf				Local configuration file
+> │   │   ├── bblayers.conf				Local build-openstlinuxweston-stm32mp1-aws-ggv2configuration file
 > │   │   ├── local.conf					Layers configuration file
 > │   │   └── [...]
 > │   └── workspace
