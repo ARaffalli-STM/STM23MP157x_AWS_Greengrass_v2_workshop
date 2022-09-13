@@ -59,65 +59,11 @@ Required H/W:
 
 ------
 
-## 2. Install STM32CubeProgrammer on your host computer
+## 2. Install the latest version of STM32CubeProgrammer on your host computer
 
-1. Install Java platform version 1.8 required by STM32CubeProgrammer
+Please refer to this link to install the latest version of STM32CubeProgrammer: [STM32CubeProgrammer Installation Guide]: https://wiki.st.com/stm32mpu/wiki/STM32CubeProgrammer
 
-> ```bash
-> PC $> sudo apt-get install openjdk-8-jre-headless
-> PC $> sudo update-alternatives --config java
-> ```
-
-​	==> Select the java-8-openjdk configuration
-
-2. Install OpenJFX for Ubuntu® 18.04
-
-> ```bash
-> PC $> sudo apt purge openjfx
-> PC $> sudo apt install openjfx=8u161-b12-1ubuntu2 libopenjfx-jni=8u161-b12-1ubuntu2 libopenjfx-java=8u161-b12-1ubuntu2
-> PC $> sudo apt-mark hold openjfx libopenjfx-jni libopenjfx-java
-> ```
-
-3. Create your STM32MPU tools directory
-
-> ```bash
-> PC $> mkdir -p $HOME/STM32MPU_workspace/STM32MPU_tools/STM32CubeProgrammer-2.5.0
-> ```
-
-4. Create a temporary directory in your STM32MPU workspace
-
-> ```bash
-> PC $> mkdir $HOME/STM32MPU_workspace/tmp
-> ```
-
-5. Download the latest [STM32CubeProgrammer][STM32CubeProgrammer download link] in `$HOME/STM32MPU_workspace/tmp`
-
-[STM32CubeProgrammer download link]: https://www.st.com/en/development-tools/stm32cubeprog.html#getsoftware-scroll
-
-*Note: If you cannot download the installation file, you can find it as well in the provided USB flash drive inside the folder 1.STM32CubeProgrammer_installation, please copy this installation file in `$HOME/STM32MPU_workspace/tmp`*
-
-6. Decompress the archive file to get the STM32CubeProgrammer installers
-
-> ```bash
-> PC $> cd $HOME/STM32MPU_workspace/tmp
-> PC $> unzip en.stm32cubeprog_v2-5-0.zip
-> ```
-
-7. Execute the Linux installer which guides you through the installation process
-
-> ```bash
-> PC $> ./SetupSTM32CubeProgrammer-2.5.0.linux
-> ```
-
-​	==> Select $HOME/STM32MPU_workspace/STM32MPU_tools/STM32CubeProgrammer-2.5.0 as the installation directory
-
-8. Add the STM32CubeProgrammer binary path to your PATH environment variable (or .bashrc)
-
-> ```bash
-> PC $> export PATH=$HOME/STM32MPU_workspace/STM32MPU_tools/STM32CubeProgrammer-2.5.0/bin:$PATH
-> ```
-
-9. Check that the STM32CubeProgrammer tool is properly installed and accessible
+Check that the STM32CubeProgrammer tool is properly installed and accessible
 
 > ```bash
 > PC $> STM32_Programmer_CLI --h
